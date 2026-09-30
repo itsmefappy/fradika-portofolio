@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portofolio Fradika Anggara Putra — Web Developer">
+<title>Fradika Anggara Putra — Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080b14;--panel:#101522;--line:#263047;--text:#eef3fb;--muted:#9aa8bd;--cyan:#00d9ff;--purple:#8b5cf6}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:36px 36px}
+body:after{content:"";position:fixed;width:520px;height:520px;border-radius:50%;background:var(--purple);filter:blur(180px);opacity:.12;right:-220px;top:100px;z-index:-1}
+a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(8,11,20,.75);backdrop-filter:blur(18px);border-bottom:1px solid rgba(38,48,71,.7)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font:700 21px "Space Grotesk"}.brand span{color:var(--cyan)}
+.navlinks{display:flex;gap:28px;font-size:13px;color:#bcc7d8}.navlinks a:hover{color:#fff}
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:72px}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:65px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:8px;color:#b9c6d9;border:1px solid var(--line);background:rgba(16,21,34,.7);border-radius:999px;padding:7px 12px;font-size:12px}.dot{width:7px;height:7px;border-radius:50%;background:#5eead4;box-shadow:0 0 14px #5eead4}
+h1{font:700 clamp(48px,7vw,82px)/.98 "Space Grotesk";letter-spacing:-4px;margin:20px 0}h1 span{color:var(--cyan)}
+.hero p{color:var(--muted);max-width:650px;font-size:17px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{padding:12px 19px;border-radius:9px;border:1px solid var(--line);font-size:13px;font-weight:700;transition:.2s}.btn:hover{transform:translateY(-2px)}.main{background:var(--cyan);border-color:var(--cyan);color:#061018}
+.code-card{background:linear-gradient(145deg,#111827,#0c101b);border:1px solid var(--line);border-radius:18px;padding:20px;transform:rotate(2deg);box-shadow:0 20px 70px #0006}.window{border:1px solid #263248;border-radius:12px;overflow:hidden;background:#090d16}.top{height:35px;border-bottom:1px solid #202a3b;display:flex;gap:6px;align-items:center;padding:0 12px}.circle{width:7px;height:7px;border-radius:50%;background:#344057}.code{padding:25px;font:13px/2.1 ui-monospace,monospace;color:#aebbd0}.c{color:#63728a}.p{color:var(--cyan)}.v{color:#c4b5fd}
+section{padding:110px 0;border-top:1px solid rgba(38,48,71,.7)}.eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--cyan)}h2{font:700 40px "Space Grotesk";letter-spacing:-1.5px;margin:7px 0 38px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:50px}.about p{color:var(--muted);margin-bottom:15px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{padding:20px;border:1px solid var(--line);background:rgba(16,21,34,.7);border-radius:12px}.stat b{font:700 26px "Space Grotesk";display:block;color:var(--cyan)}.stat span{font-size:12px;color:var(--muted)}
+.skills{display:flex;flex-wrap:wrap;gap:10px}.skill{padding:10px 14px;border:1px solid var(--line);background:rgba(16,21,34,.7);border-radius:8px;font-size:13px;color:#d7dfeb}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.project{background:rgba(16,21,34,.85);border:1px solid var(--line);border-radius:15px;padding:14px;transition:.3s}.project:hover{border-color:var(--cyan);transform:translateY(-6px);box-shadow:0 18px 45px #00d9ff14}
+.thumb{height:205px;border-radius:10px;overflow:hidden;border:1px solid #29354a;position:relative;background:#0b101b;display:flex;align-items:center;justify-content:center}
+.thumb:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#00d9ff18,#8b5cf626 55%,transparent)}
+.mock{position:relative;width:82%;height:74%;border:1px solid #35445d;border-radius:8px;background:#0b111d;box-shadow:0 12px 35px #0008;overflow:hidden}.mockbar{height:22px;border-bottom:1px solid #253148;display:flex;gap:5px;padding:7px}.mockbar i{width:5px;height:5px;border-radius:50%;background:#45536a}.mockbody{padding:18px}.mocktitle{font:700 17px "Space Grotesk";color:#eef3fb}.mockline{height:5px;background:#27344b;border-radius:5px;margin-top:8px;width:75%}.mockline.short{width:48%}.mockcards{display:flex;gap:7px;margin-top:16px}.mockcards i{height:45px;flex:1;border:1px solid #29374e;border-radius:5px;background:#111a2a}.api .mockbody{font:11px ui-monospace,monospace;color:#9fb0c8}.api .mocktitle{color:var(--cyan)}.ml .mockbody{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ml .chart{height:75px;border:1px solid #29374e;position:relative;background:linear-gradient(165deg,transparent 40%,#00d9ff22 41%,transparent 42%),linear-gradient(10deg,transparent 48%,#8b5cf633 49%,transparent 50%)}
+.project-body{padding:15px 4px 6px}.type{display:inline-block;font-size:10px;letter-spacing:1px;font-weight:800;color:var(--cyan);border:1px solid #00d9ff59;border-radius:999px;padding:4px 9px;margin-bottom:10px}.project h3{font-size:19px;margin-bottom:7px}.project p{font-size:12px;color:var(--muted);min-height:62px}.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}.tag{font-size:10px;padding:4px 7px;border-radius:5px;background:#171f30;border:1px solid #2b3850;color:#c5d0df}
+.edu{display:grid;grid-template-columns:1fr 2fr;gap:30px}.edu-card{padding:25px;border:1px solid var(--line);border-radius:13px;background:rgba(16,21,34,.75)}.edu-card small{color:var(--cyan)}.edu-card h3{margin:5px 0}.edu-card p{color:var(--muted);font-size:13px}
+.contact{text-align:center;border:1px solid var(--line);background:radial-gradient(circle at 50% 0,#00d9ff1a,transparent 45%),rgba(16,21,34,.8);border-radius:18px;padding:60px 25px}.contact p{color:var(--muted);max-width:620px;margin:auto}footer{text-align:center;padding:35px;color:#647189;font-size:11px;border-top:1px solid var(--line)}
+@media(max-width:850px){.hero-grid,.about,.edu{grid-template-columns:1fr}.projects{grid-template-columns:1fr}.code-card{max-width:600px}}
+@media(max-width:580px){.navlinks{display:none}.hero{min-height:90vh}h1{letter-spacing:-2.5px}.thumb{height:190px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav"><a class="brand" href="#">FRADIKA<span>.</span></a><div class="navlinks"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a></div></div></nav>
+
+<header class="hero"><div class="wrap hero-grid">
+<div>
+<div class="kicker"><span class="dot"></span> Web Developer · Fresh Graduate</div>
+<h1>Turning ideas into<br><span>digital experiences.</span></h1>
+<p>Saya <strong style="color:#eef3fb">Fradika Anggara Putra</strong>, seorang Web Developer dari Yogyakarta yang senang membangun website dan aplikasi web yang modern, responsive, dan mudah digunakan.</p>
+<div class="actions">
+<a class="btn main" href="#projects">Explore My Work ↗</a>
+<a class="btn" href="#about">More About Me</a>
+</div>
+<div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:25px;color:#7f8da4;font-size:11px">
+<span>● Laravel</span><span>● React</span><span>● WordPress</span><span>● SEO</span>
+</div>
+</div>
+<div class="code-card">
+<div class="window"><div class="top"><i class="circle"></i><i class="circle"></i><i class="circle"></i></div>
+<div class="code">
+<div><span class="c">// hello, world 👋</span></div>
+<div><span class="p">const</span> developer = {</div>
+<div>&nbsp;&nbsp;<span class="p">name</span>: <span class="v">"Fradika Anggara"</span>,</div>
+<div>&nbsp;&nbsp;<span class="p">role</span>: <span class="v">"Web Developer"</span>,</div>
+<div>&nbsp;&nbsp;<span class="p">focus</span>: <span class="v">"Web &amp; SEO"</span>,</div>
+<div>&nbsp;&nbsp;<span class="p">stack</span>: [<span class="v">"Laravel"</span>, <span class="v">"React"</span>],</div>
+<div>&nbsp;&nbsp;<span class="p">location</span>: <span class="v">"Yogyakarta, ID"</span></div>
+<div>};</div>
+<div style="margin-top:12px"><span class="c">// Let's build something useful.</span></div>
+</div></div></div>
+</div></header>
+
+<section id="about"><div class="wrap"><div class="eyebrow">01 — About</div><h2>About Me</h2>
+<div class="about">
+<div>
+<p>Halo! Saya <strong style="color:#eef3fb">Fradika Anggara Putra</strong>. Saya merupakan fresh graduate Informatika yang memiliki ketertarikan pada pengembangan website, aplikasi web, SEO, dan teknologi digital.</p>
+<p>Saya menikmati proses mengubah ide menjadi sebuah website yang dapat digunakan, mulai dari merancang tampilan, membangun frontend dan backend, mengelola database, hingga menguji API.</p>
+<p>Selain coding, saya juga mempelajari Figma, Canva, CapCut, WordPress, dan SEO untuk memahami proses pembuatan produk digital secara lebih menyeluruh.</p>
+<div class="actions" style="margin-top:22px"><a class="btn main" href="#contact">Let's Connect ↗</a></div>
+</div>
+<div class="stats">
+<div class="stat"><b>3+</b><span>Project utama</span></div>
+<div class="stat"><b>Web</b><span>Development focus</span></div>
+<div class="stat"><b>SEO</b><span>Digital optimization</span></div>
+<div class="stat"><b>∞</b><span>Semangat belajar</span></div>
+</div>
+</div></div></section>
+
+<section id="skills"><div class="wrap"><div class="eyebrow">02 — Skills</div><h2>Skills</h2>
+<h3 style="font:600 20px 'Space Grotesk';margin-bottom:16px">Technical Skills</h3>
+<div class="skills" style="margin-bottom:42px">
+<span class="skill">Laravel</span><span class="skill">React</span><span class="skill">TypeScript</span><span class="skill">PHP</span><span class="skill">JavaScript</span><span class="skill">MySQL</span><span class="skill">REST API</span><span class="skill">HTML & CSS</span><span class="skill">Bootstrap</span><span class="skill">Python</span><span class="skill">Scikit-learn</span>
+</div>
+<h3 style="font:600 20px 'Space Grotesk';margin-bottom:16px">🎨 Design & Tools</h3>
+<div class="skills" style="margin-bottom:42px">
+<span class="skill"><b>Figma</b><br><small>UI/UX Design & Prototype</small></span>
+<span class="skill"><b>Canva</b><br><small>Graphic Design & Visual Content</small></span>
+<span class="skill"><b>CapCut</b><br><small>Video Editing</small></span>
+<span class="skill"><b>Git & GitHub</b><br><small>Version Control</small></span>
+</div>
+<h3 style="font:600 20px 'Space Grotesk';margin-bottom:16px">🤝 Soft Skills</h3>
+<div class="skills">
+<span class="skill">Teamwork</span><span class="skill">Tanggung Jawab</span><span class="skill">Time Management</span><span class="skill">Problem Solving</span><span class="skill">Communication</span><span class="skill">Adaptability</span>
+</div>
+</div></section>
+
+<section id="projects"><div class="wrap"><div class="eyebrow">03 — Projects</div><h2>Featured Projects</h2><div class="projects">
+
+<article class="project"><div class="thumb"><div class="mock"><div class="mockbar"><i></i><i></i><i></i></div><div class="mockbody"><div class="mocktitle">Website UMKM</div><div class="mockline"></div><div class="mockline short"></div><div class="mockcards"><i></i><i></i><i></i></div></div></div></div><div class="project-body"><span class="type">WEB DEVELOPMENT</span><h3>Website UMKM — KKN</h3><p>Mengembangkan website untuk membantu UMKM selama kegiatan KKN sebagai media informasi dan memperkenalkan usaha secara digital.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap</span><span class="tag">JavaScript</span></div></div></article>
+
+<article class="project"><div class="thumb"><div class="mock"><div class="mockbar"><i></i><i></i><i></i></div><div class="mockbody"><div class="mocktitle">Villa Fappy</div><div class="mockline"></div><div class="mockline short"></div><div class="mockcards"><i></i><i></i><i></i></div></div></div></div><div class="project-body"><span class="type">WEBSITE</span><h3>Villa Fappy</h3><p>Website informasi villa dengan tampilan responsive, navigasi, fasilitas, dan halaman yang dirancang untuk kebutuhan promosi bisnis.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap 5</span><span class="tag">JavaScript</span></div></div></article>
+
+<article class="project"><div class="thumb"><div class="mock"><div class="mockbar"><i></i><i></i><i></i></div><div class="mockbody"><div class="mocktitle">School CMS</div><div class="mockline"></div><div class="mockline short"></div><div class="mockcards"><i></i><i></i><i></i></div></div></div></div><div class="project-body"><span class="type">WEB APP</span><h3>School CMS</h3><p>Sistem manajemen sekolah dengan frontend React dan backend Laravel REST API untuk mengelola data sekolah.</p><div class="tags"><span class="tag">React</span><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">REST API</span></div></div></article>
+
+</div></div></section>
+
+<section id="education"><div class="wrap"><div class="eyebrow">04 — Education</div><h2>Education</h2>
+<div class="edu">
+<div><p style="color:var(--muted)">Latar belakang pendidikan yang menjadi dasar saya dalam memahami pemrograman, pengembangan sistem, dan teknologi informasi.</p></div>
+<div class="edu-card"><small>UNIVERSITAS PGRI YOGYAKARTA</small><h3>Fakultas Sains dan Teknologi</h3><p><strong style="color:#eef3fb">Program Studi Informatika</strong></p><p style="margin-top:8px">Mempelajari pemrograman, database, pengembangan website, rekayasa perangkat lunak, pengembangan sistem, dan teknologi informasi.</p></div>
+</div></div></section>
+
+<section id="contact"><div class="wrap"><div class="contact"><div class="eyebrow">05 — Contact</div><h2>Let's Work Together</h2><p>Terbuka untuk peluang kerja, project, kolaborasi, dan kesempatan belajar di bidang web development.</p><div class="actions" style="justify-content:center"><a class="btn main" href="https://mail.google.com/mail/?view=cm&fs=1&to=akunfradika@gmail.com" target="_blank" rel="noopener">Email</a><a class="btn" href="https://wa.me/6288216101271" target="_blank" rel="noopener">WhatsApp ↗</a><a class="btn" href="https://www.instagram.com/fradikaanggara_/" target="_blank" rel="noopener">Instagram ↗</a><a class="btn" href="https://web.facebook.com/fradika.anggara.2025" target="_blank" rel="noopener">Facebook ↗</a><a class="btn" href="https://www.linkedin.com/in/fradikaanggara" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn" href="https://github.com/itsmefappy" target="_blank" rel="noopener">GitHub ↗</a></div></div></div></section>
+<footer>© 2026 Fradika Anggara Putra — Web Developer</footer>
+</body></html>
