@@ -35,15 +35,43 @@ section{padding:110px 0;border-top:1px solid rgba(38,48,71,.7)}.eyebrow{font-siz
 .contact{text-align:center;border:1px solid var(--line);background:radial-gradient(circle at 50% 0,#00d9ff1a,transparent 45%),rgba(16,21,34,.8);border-radius:18px;padding:60px 25px}.contact p{color:var(--muted);max-width:620px;margin:auto}footer{text-align:center;padding:35px;color:#647189;font-size:11px;border-top:1px solid var(--line)}
 @media(max-width:850px){.hero-grid,.about,.edu{grid-template-columns:1fr}.projects{grid-template-columns:1fr}.code-card{max-width:600px}}
 @media(max-width:580px){.navlinks{display:none}.hero{min-height:90vh}h1{letter-spacing:-2.5px}.thumb{height:190px}}
+.spotlight{position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(420px circle at var(--mx,50%) var(--my,15%),rgba(0,217,255,.1),transparent 65%)}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.navlinks a{position:relative;padding-bottom:5px;transition:color .2s}
+.navlinks a:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--cyan);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.navlinks a:hover:after,.navlinks a.active:after{transform:scaleX(1)}
+.navlinks a.active{color:#fff}
+.typed-line{font:13px ui-monospace,monospace;color:var(--cyan);margin-top:18px;letter-spacing:.5px}
+.caret{display:inline-block;width:8px;height:1em;background:var(--cyan);margin-left:4px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filter{padding:8px 15px;border-radius:999px;border:1px solid var(--line);background:rgba(16,21,34,.7);color:#bcc7d8;font:700 12px Inter,sans-serif;cursor:pointer;transition:.2s}
+.filter:hover{color:#fff;border-color:#3a4a68}
+.filter.on{background:var(--cyan);border-color:var(--cyan);color:#061018}
+.project.hide{display:none}
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.js .reveal.in{opacity:1;transform:none}
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple));z-index:60;transition:width .1s linear}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero .kicker,.hero h1,.hero .typed-line,.hero p,.hero .actions{animation:rise .75s cubic-bezier(.22,1,.36,1) both}
+.hero h1{animation-delay:.06s}.hero .typed-line{animation-delay:.14s}.hero p{animation-delay:.22s}.hero .actions{animation-delay:.3s}
+.js .skills.reveal .skill{opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s cubic-bezier(.22,1,.36,1)}
+.js .skills.reveal.in .skill{opacity:1;transform:none}
+.project{will-change:transform}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.caret{animation:none}*,*:before,*:after{transition-duration:.01ms!important}.js .reveal{opacity:1;transform:none}.js .skills.reveal .skill{opacity:1;transform:none}.hero .kicker,.hero h1,.hero .typed-line,.hero p,.hero .actions{animation:none}}
 </style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
+<div class="spotlight" aria-hidden="true"></div>
 <nav><div class="wrap nav"><a class="brand" href="#">FRADIKA<span>.</span></a><div class="navlinks"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a></div></div></nav>
 
 <header class="hero"><div class="wrap hero-grid">
 <div>
 <div class="kicker"><span class="dot"></span> Web Developer · Fresh Graduate</div>
 <h1>Turning ideas into<br><span>digital experiences.</span></h1>
+<div class="typed-line">&gt; <span id="typed">Web Developer</span><i class="caret"></i></div>
 <p>Saya <strong style="color:#eef3fb">Fradika Anggara Putra</strong>, seorang Web Developer dari Yogyakarta yang senang membangun website dan aplikasi web yang modern, responsive, dan mudah digunakan.</p>
 <div class="actions">
 <a class="btn main" href="#projects">Explore My Work ↗</a>
@@ -53,7 +81,7 @@ section{padding:110px 0;border-top:1px solid rgba(38,48,71,.7)}.eyebrow{font-siz
 <span>● Laravel</span><span>● React</span><span>● WordPress</span><span>● SEO</span>
 </div>
 </div>
-<div class="code-card">
+<div class="code-card reveal">
 <div class="window"><div class="top"><i class="circle"></i><i class="circle"></i><i class="circle"></i></div>
 <div class="code">
 <div><span class="c">// hello, world 👋</span></div>
@@ -69,7 +97,7 @@ section{padding:110px 0;border-top:1px solid rgba(38,48,71,.7)}.eyebrow{font-siz
 </div></header>
 
 <section id="about"><div class="wrap"><div class="eyebrow">01 — About</div><h2>About Me</h2>
-<div class="about">
+<div class="about reveal">
 <div>
 <p>Halo! Saya <strong style="color:#eef3fb">Fradika Anggara Putra</strong>. Saya merupakan fresh graduate Informatika yang memiliki ketertarikan pada pengembangan website, aplikasi web, SEO, dan teknologi digital.</p>
 <p>Saya menikmati proses mengubah ide menjadi sebuah website yang dapat digunakan, mulai dari merancang tampilan, membangun frontend dan backend, mengelola database, hingga menguji API.</p>
@@ -77,7 +105,7 @@ section{padding:110px 0;border-top:1px solid rgba(38,48,71,.7)}.eyebrow{font-siz
 <div class="actions" style="margin-top:22px"><a class="btn main" href="#contact">Let's Connect ↗</a></div>
 </div>
 <div class="stats">
-<div class="stat"><b>3+</b><span>Project utama</span></div>
+<div class="stat"><b data-count="3">3+</b><span>Project utama</span></div>
 <div class="stat"><b>Web</b><span>Development focus</span></div>
 <div class="stat"><b>SEO</b><span>Digital optimization</span></div>
 <div class="stat"><b>∞</b><span>Semangat belajar</span></div>
@@ -86,11 +114,11 @@ section{padding:110px 0;border-top:1px solid rgba(38,48,71,.7)}.eyebrow{font-siz
 
 <section id="skills"><div class="wrap"><div class="eyebrow">02 — Skills</div><h2>Skills</h2>
 <h3 style="font:600 20px 'Space Grotesk';margin-bottom:16px">Technical Skills</h3>
-<div class="skills" style="margin-bottom:42px">
+<div class="skills reveal" style="margin-bottom:42px">
 <span class="skill">Laravel</span><span class="skill">React</span><span class="skill">TypeScript</span><span class="skill">PHP</span><span class="skill">JavaScript</span><span class="skill">MySQL</span><span class="skill">REST API</span><span class="skill">HTML & CSS</span><span class="skill">Bootstrap</span><span class="skill">Python</span><span class="skill">Scikit-learn</span>
 </div>
 <h3 style="font:600 20px 'Space Grotesk';margin-bottom:16px">🎨 Design & Tools</h3>
-<div class="skills" style="margin-bottom:42px">
+<div class="skills reveal" style="margin-bottom:42px">
 <span class="skill"><b>Figma</b><br><small>UI/UX Design & Prototype</small></span>
 <span class="skill"><b>Canva</b><br><small>Graphic Design & Visual Content</small></span>
 <span class="skill"><b>CapCut</b><br><small>Video Editing</small></span>
@@ -102,13 +130,19 @@ section{padding:110px 0;border-top:1px solid rgba(38,48,71,.7)}.eyebrow{font-siz
 </div>
 </div></section>
 
-<section id="projects"><div class="wrap"><div class="eyebrow">03 — Projects</div><h2>Featured Projects</h2><div class="projects">
+<section id="projects"><div class="wrap"><div class="eyebrow">03 — Projects</div><h2>Featured Projects</h2>
+<div class="filters" role="group" aria-label="Filter projects">
+<button type="button" class="filter on" aria-pressed="true" data-filter="all">All</button>
+<button type="button" class="filter" aria-pressed="false" data-filter="website">Websites</button>
+<button type="button" class="filter" aria-pressed="false" data-filter="webapp">Web Apps</button>
+</div>
+<div class="projects">
 
-<article class="project"><div class="thumb"><div class="mock"><div class="mockbar"><i></i><i></i><i></i></div><div class="mockbody"><div class="mocktitle">Website UMKM</div><div class="mockline"></div><div class="mockline short"></div><div class="mockcards"><i></i><i></i><i></i></div></div></div></div><div class="project-body"><span class="type">WEB DEVELOPMENT</span><h3>Website UMKM — KKN</h3><p>Mengembangkan website untuk membantu UMKM selama kegiatan KKN sebagai media informasi dan memperkenalkan usaha secara digital.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap</span><span class="tag">JavaScript</span></div></div></article>
+<article class="project reveal" data-category="website"><div class="thumb"><div class="mock"><div class="mockbar"><i></i><i></i><i></i></div><div class="mockbody"><div class="mocktitle">Website UMKM</div><div class="mockline"></div><div class="mockline short"></div><div class="mockcards"><i></i><i></i><i></i></div></div></div></div><div class="project-body"><span class="type">WEB DEVELOPMENT</span><h3>Website UMKM — KKN</h3><p>Mengembangkan website untuk membantu UMKM selama kegiatan KKN sebagai media informasi dan memperkenalkan usaha secara digital.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap</span><span class="tag">JavaScript</span></div></div></article>
 
-<article class="project"><div class="thumb"><div class="mock"><div class="mockbar"><i></i><i></i><i></i></div><div class="mockbody"><div class="mocktitle">Villa Fappy</div><div class="mockline"></div><div class="mockline short"></div><div class="mockcards"><i></i><i></i><i></i></div></div></div></div><div class="project-body"><span class="type">WEBSITE</span><h3>Villa Fappy</h3><p>Website informasi villa dengan tampilan responsive, navigasi, fasilitas, dan halaman yang dirancang untuk kebutuhan promosi bisnis.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap 5</span><span class="tag">JavaScript</span></div></div></article>
+<article class="project reveal" data-category="website"><div class="thumb"><div class="mock"><div class="mockbar"><i></i><i></i><i></i></div><div class="mockbody"><div class="mocktitle">Villa Fappy</div><div class="mockline"></div><div class="mockline short"></div><div class="mockcards"><i></i><i></i><i></i></div></div></div></div><div class="project-body"><span class="type">WEBSITE</span><h3>Villa Fappy</h3><p>Website informasi villa dengan tampilan responsive, navigasi, fasilitas, dan halaman yang dirancang untuk kebutuhan promosi bisnis.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap 5</span><span class="tag">JavaScript</span></div></div></article>
 
-<article class="project"><div class="thumb"><div class="mock"><div class="mockbar"><i></i><i></i><i></i></div><div class="mockbody"><div class="mocktitle">School CMS</div><div class="mockline"></div><div class="mockline short"></div><div class="mockcards"><i></i><i></i><i></i></div></div></div></div><div class="project-body"><span class="type">WEB APP</span><h3>School CMS</h3><p>Sistem manajemen sekolah dengan frontend React dan backend Laravel REST API untuk mengelola data sekolah.</p><div class="tags"><span class="tag">React</span><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">REST API</span></div></div></article>
+<article class="project reveal" data-category="webapp"><div class="thumb"><div class="mock"><div class="mockbar"><i></i><i></i><i></i></div><div class="mockbody"><div class="mocktitle">School CMS</div><div class="mockline"></div><div class="mockline short"></div><div class="mockcards"><i></i><i></i><i></i></div></div></div></div><div class="project-body"><span class="type">WEB APP</span><h3>School CMS</h3><p>Sistem manajemen sekolah dengan frontend React dan backend Laravel REST API untuk mengelola data sekolah.</p><div class="tags"><span class="tag">React</span><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">REST API</span></div></div></article>
 
 </div></div></section>
 
@@ -120,4 +154,125 @@ section{padding:110px 0;border-top:1px solid rgba(38,48,71,.7)}.eyebrow{font-siz
 
 <section id="contact"><div class="wrap"><div class="contact"><div class="eyebrow">05 — Contact</div><h2>Let's Work Together</h2><p>Terbuka untuk peluang kerja, project, kolaborasi, dan kesempatan belajar di bidang web development.</p><div class="actions" style="justify-content:center"><a class="btn main" href="https://mail.google.com/mail/?view=cm&fs=1&to=akunfradika@gmail.com" target="_blank" rel="noopener">Email</a><a class="btn" href="https://wa.me/6288216101271" target="_blank" rel="noopener">WhatsApp ↗</a><a class="btn" href="https://www.instagram.com/fradikaanggara_/" target="_blank" rel="noopener">Instagram ↗</a><a class="btn" href="https://web.facebook.com/fradika.anggara.2025" target="_blank" rel="noopener">Facebook ↗</a><a class="btn" href="https://www.linkedin.com/in/fradikaanggara" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn" href="https://github.com/itsmefappy" target="_blank" rel="noopener">GitHub ↗</a></div></div></div></section>
 <footer>© 2026 Fradika Anggara Putra — Web Developer</footer>
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const revealEls = document.querySelectorAll('.reveal');
+  if (!reduce && 'IntersectionObserver' in window) {
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          if (entry.target.classList.contains('skills')) {
+            [...entry.target.children].forEach((skill, i) => {
+              skill.style.transitionDelay = i * 45 + 'ms';
+            });
+          }
+          ro.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .14 });
+    revealEls.forEach(el => ro.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+    document.querySelectorAll('.skills').forEach(group => {
+      const children = [...group.children];
+      children.forEach((skill, i) => skill.style.transitionDelay = i * 45 + 'ms');
+    });
+  }
+
+  const typed = document.querySelector('#typed');
+  const roles = ['Web Developer', 'Frontend Builder', 'SEO Enthusiast'];
+  if (typed && !reduce) {
+    let wordIdx = 0, pos = roles[0].length, deleting = true;
+    typed.textContent = '';
+    const tick = () => {
+      const w = roles[wordIdx];
+      if (deleting) pos--; else pos++;
+      typed.textContent = w.slice(0, pos);
+      let wait = deleting ? 55 : 95;
+      if (!deleting && pos === w.length) { deleting = true; wait = 1500; }
+      if (deleting && pos === 0) { deleting = false; wordIdx = (wordIdx + 1) % roles.length; pos = 0; wait = 350; }
+      setTimeout(tick, wait);
+    };
+    setTimeout(tick, 1400);
+  }
+
+  document.querySelectorAll('.filter').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.filter').forEach(b => {
+        const active = b === btn;
+        b.classList.toggle('on', active);
+        b.setAttribute('aria-pressed', active);
+      });
+      document.querySelectorAll('.project').forEach(card => {
+        const show = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('hide', !show);
+      });
+    });
+  });
+
+  const sections = [...document.querySelectorAll('section[id]')];
+  const navLinks = [...document.querySelectorAll('.navlinks a')];
+  const navObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+      }
+    });
+  }, { rootMargin: '-35% 0px -55% 0px' });
+  sections.forEach(section => navObs.observe(section));
+
+  addEventListener('pointermove', e => {
+    document.documentElement.style.setProperty('--mx', e.clientX + 'px');
+    document.documentElement.style.setProperty('--my', e.clientY + 'px');
+  });
+
+  addEventListener('scroll', () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const progress = document.querySelector('.progress');
+    if (max) progress.style.width = (scrollY / max * 100) + '%';
+    else progress.style.width = '0%';
+  }, { passive: true });
+
+  const counter = document.querySelector('[data-count]');
+  if (counter && !reduce) {
+    const co = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        let v = 0;
+        const target = +counter.dataset.count;
+        const step = () => {
+          v++;
+          counter.textContent = v + '+';
+          if (v === target) clearInterval(t);
+          else t = setTimeout(step, 120);
+        };
+        const t = setTimeout(step, 0);
+        co.disconnect();
+      }
+    });
+    co.observe(counter);
+  }
+
+  if (!matchMedia('(pointer: coarse)').matches && !reduce) {
+    const cards = document.querySelectorAll('.project');
+    cards.forEach(card => {
+      card.addEventListener('pointermove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - .5;
+        const y = (e.clientY - rect.top) / rect.height - .5;
+        card.style.transform = `perspective(700px) rotateX(${-y * 4}deg) rotateY(${x * 5}deg) translateY(-6px)`;
+        card.style.transition = 'transform .08s ease';
+      });
+      card.addEventListener('pointerleave', e => {
+        e.currentTarget.style.transform = '';
+        e.currentTarget.style.transition = '';
+      });
+    });
+  }
+})();
+</script>
 </body></html>
